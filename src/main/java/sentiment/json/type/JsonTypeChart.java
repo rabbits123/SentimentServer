@@ -3,7 +3,7 @@ package sentiment.json.type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JsonTypeDepartmentChart {
+public class JsonTypeChart {
 	List<ChartElement> chartList = new ArrayList<>();
 	
 	public List<ChartElement> getChartList() {

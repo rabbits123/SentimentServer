@@ -8,12 +8,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(value = { "jsonTypeDepartment"})
 public class ChartElement {
 	private int semester;
-	private JsonTypeDepartment jsonTypeDepartment = new JsonTypeDepartment();
+	private JsonType jsonType = new JsonType();
 	private List<Double> listRatio = new ArrayList<>();
 	
-	public ChartElement(int semester, JsonTypeDepartment jsonTypeDepartment) {
+	public ChartElement(int semester, JsonType jsonType) {
 		this.semester = semester;
-		this.jsonTypeDepartment = jsonTypeDepartment;
+		this.jsonType = jsonType;
 	}
 	
 	public ChartElement() {
@@ -21,10 +21,10 @@ public class ChartElement {
 	}
 	
 	public void caculateRatio() {
-		int total = jsonTypeDepartment.getNegative() + jsonTypeDepartment.getPositive() + jsonTypeDepartment.getNeutral();
-		this.listRatio.add((double)jsonTypeDepartment.getNegative() / total);
-		this.listRatio.add((double)jsonTypeDepartment.getNeutral() / total);
-		this.listRatio.add((double)jsonTypeDepartment.getPositive() / total);
+		int total = jsonType.getNegative() + jsonType.getPositive() + jsonType.getNeutral();
+		this.listRatio.add((double)jsonType.getNegative() / total);
+		this.listRatio.add((double)jsonType.getNeutral() / total);
+		this.listRatio.add((double)jsonType.getPositive() / total);
 	}
 	
 	public int getSemester() {
@@ -33,19 +33,19 @@ public class ChartElement {
 	public void setSemester(int semester) {
 		this.semester = semester;
 	}
-	public JsonTypeDepartment getListPercent() {
-		return jsonTypeDepartment;
+	public JsonType getListPercent() {
+		return jsonType;
 	}
-	public void setListPercent(JsonTypeDepartment listPercent) {
-		this.jsonTypeDepartment = listPercent;
-	}
-
-	public JsonTypeDepartment getJsonTypeDepartment() {
-		return jsonTypeDepartment;
+	public void setListPercent(JsonType listPercent) {
+		this.jsonType = listPercent;
 	}
 
-	public void setJsonTypeDepartment(JsonTypeDepartment jsonTypeDepartment) {
-		this.jsonTypeDepartment = jsonTypeDepartment;
+	public JsonType getJsonTypeDepartment() {
+		return jsonType;
+	}
+
+	public void setJsonTypeDepartment(JsonType jsonTypeDepartment) {
+		this.jsonType = jsonTypeDepartment;
 	}
 
 	public List<Double> getListRatio() {

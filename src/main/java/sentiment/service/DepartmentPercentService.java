@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import sentiment.json.type.JsonTypeDepartment;
+import sentiment.json.type.JsonType;
 import sentiment.json.type.JsonTypeDepartmentFB;
 import sentiment.model.FeedbackSentence;
 import sentiment.repositories.FeedbackSentenceRepository;
@@ -16,8 +16,8 @@ public class DepartmentPercentService {
 	@Autowired
 	private FeedbackSentenceRepository feedbackSentenceRepository;
 
-	public JsonTypeDepartment getPercent(String departmentID, Integer semesterID) {
-		JsonTypeDepartment jsonTypeDepartment = new JsonTypeDepartment();
+	public JsonType getPercent(String departmentID, Integer semesterID) {
+		JsonType jsonTypeDepartment = new JsonType();
 
 		List<FeedbackSentence> feedbackSentences = feedbackSentenceRepository.findAll();
 
@@ -25,7 +25,7 @@ public class DepartmentPercentService {
 			String department_id = feedbackSentence.getDepartmentid();
 			int semeter_id = feedbackSentence.getSemeterid();
 			int sentimentLabel = feedbackSentence.getSentimentlabel();
-
+			
 			if (department_id.equals(departmentID) && semeter_id == semesterID) {
 				switch (sentimentLabel) {
 				case 0:
@@ -54,7 +54,6 @@ public class DepartmentPercentService {
 			int sentimentLabel = feedbackSentence.getSentimentlabel();
 			int topicLabel = feedbackSentence.getTopiclabel();
 			String feedback = feedbackSentence.getContent();
-
 			if (department_id.equals(departmentID) && semeter_id == semesterID) {
 				JsonTypeDepartmentFB jsonTypeDepartmentFB = new JsonTypeDepartmentFB(feedback, sentimentLabel, topicLabel);
 				listJson.add(jsonTypeDepartmentFB);

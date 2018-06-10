@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import sentiment.json.type.ChartElement;
-import sentiment.json.type.JsonTypeDepartment;
+import sentiment.json.type.JsonType;
 import sentiment.model.FeedbackSentence;
 import sentiment.repositories.FeedbackSentenceRepository;
 
@@ -22,8 +22,6 @@ public class DepartmentChartService {
 
 	public List<ChartElement> getChart(String departmentID) {
 		List<ChartElement> chartList = new ArrayList<>();
-
-		List<FeedbackSentence> feedbackSentences = feedbackSentenceRepository.findAll();
 
 		ArrayList<Integer> listSemester = departmentPercentService.getListSemester();
 

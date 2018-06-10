@@ -3,18 +3,18 @@ package sentiment.json.type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JsonTypeDepartment {
+public class JsonType {
 	private int positive =0;
 	private int neutral =0;
 	private int negative=0;
 	
-	public JsonTypeDepartment(int positive, int neutral, int negative) {
+	public JsonType(int positive, int neutral, int negative) {
 		this.positive = positive;
 		this.neutral = neutral;
 		this.negative = negative;
 	}
 	
-	public JsonTypeDepartment() {
+	public JsonType() {
 		
 	}
 	public int getPositive() {

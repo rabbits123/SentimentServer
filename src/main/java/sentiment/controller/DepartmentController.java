@@ -1,4 +1,4 @@
-package sentiment.general;
+package sentiment.controller;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import sentiment.json.type.ChartElement;
-import sentiment.json.type.JsonTypeDepartment;
+import sentiment.json.type.JsonType;
 import sentiment.json.type.JsonTypeDepartmentFB;
 import sentiment.service.DepartmentChartService;
 import sentiment.service.DepartmentPercentService;
@@ -24,7 +24,7 @@ public class DepartmentController {
 	private DepartmentChartService departmentChartService;
 	
 	@RequestMapping("/{depID}/{depSem}")
-	public JsonTypeDepartment depart(@PathVariable("depID") String depID, @PathVariable("depSem") Integer depSem) {
+	public JsonType depart(@PathVariable("depID") String depID, @PathVariable("depSem") Integer depSem) {
 		return departmentPercentServices.getPercent(depID, depSem);
 	}
 	
