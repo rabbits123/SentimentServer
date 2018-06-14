@@ -8,10 +8,11 @@ import org.springframework.stereotype.Service;
 
 import sentiment.json.type.ChartElement;
 import sentiment.json.type.JsonType;
-import sentiment.json.type.JsonTypeChart;
 import sentiment.json.type.JsontypeFeedback;
 import sentiment.model.FeedbackSentence;
+import sentiment.model.Lecturer;
 import sentiment.repositories.FeedbackSentenceRepository;
+import sentiment.repositories.LecturerRepository;
 
 @Service
 public class LecturerService {
@@ -20,6 +21,7 @@ public class LecturerService {
 	
 	@Autowired
 	private DepartmentPercentService departmentPercentService;
+	
 	
 	public JsonType getPercent(Integer semesterID) {
 		JsonType jsonTypeLecturer = new JsonType();

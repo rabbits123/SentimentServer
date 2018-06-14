@@ -1,7 +1,5 @@
 package sentiment.json.type;
 
-import org.springframework.stereotype.Service;
-
 public class JsonTypeGeneral {
 	private int numPos = 0;
 	private int numNeu = 0;

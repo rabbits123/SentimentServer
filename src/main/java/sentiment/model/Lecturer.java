@@ -22,11 +22,27 @@ public class Lecturer implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@GeneratedValue
+	@Column(name="Id")
+	private int Id;
+	
+	public int getId() {
+		return Id;
+	}
+	public Lecturer() {
+	}
+
+	public Lecturer(String lecturerName) {
+		super();
+		this.lecturerName = lecturerName;
+	}
+
+	public void setId(int id) {
+		this.Id = id;
+	}
 
 	@Column(name="LecturerName")
-	private String content;
+	private String lecturerName;
 	
 	@Column(name="Gender")
 	private String gender;
@@ -34,12 +50,12 @@ public class Lecturer implements Serializable{
 	@Column(name="DateOfBirth")
 	private String dateOfBirth;
 
-	public String getContent() {
-		return content;
+	public String getlecturerName() {
+		return lecturerName;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+	public void setlecturerName(String lecturerName) {
+		this.lecturerName = lecturerName;
 	}
 
 	public String getGender() {

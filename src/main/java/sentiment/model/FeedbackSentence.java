@@ -26,9 +26,8 @@ public class FeedbackSentence implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
+	
+	
 	@Column(name="Content")
 	private String content;
 
@@ -42,20 +41,27 @@ public class FeedbackSentence implements Serializable {
 	private Integer lecturerid;
 
 	@Column(name="subjectId")
-	private Integer subjectid;
+	private int subjectid;
 
 	@Column(name="departmentId")
 	private String departmentid;
 
 	@Column(name="semeterId")
 	private Integer semeterid;
-
-	public Long getId() {
-		return id;
+	public FeedbackSentence(String content, Integer topiclabel, Integer sentimentlabel, Integer lecturerid,
+			int subjectid, String departmentid, Integer semeterid) {
+		super();
+		this.content = content;
+		this.topiclabel = topiclabel;
+		this.sentimentlabel = sentimentlabel;
+		this.lecturerid = lecturerid;
+		this.subjectid = subjectid;
+		this.departmentid = departmentid;
+		this.semeterid = semeterid;
 	}
-
-	public void setId(Long id) {
-		this.id = id;
+	
+	public FeedbackSentence() {
+		
 	}
 
 	public String getContent() {
@@ -90,7 +96,7 @@ public class FeedbackSentence implements Serializable {
 		this.lecturerid = lecturerid;
 	}
 
-	public Integer getSubjectid() {
+	public int getSubjectid() {
 		return subjectid;
 	}
 

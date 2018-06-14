@@ -1,8 +1,5 @@
 package sentiment.json.type;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class JsonType {
 	private int positive =0;
 	private int neutral =0;

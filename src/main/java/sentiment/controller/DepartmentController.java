@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import sentiment.json.type.ChartElement;
 import sentiment.json.type.JsonType;
 import sentiment.json.type.JsonTypeDepartmentFB;
+import sentiment.model.Department;
+import sentiment.repositories.DepartmentRepository;
 import sentiment.service.DepartmentChartService;
 import sentiment.service.DepartmentPercentService;
 
@@ -22,6 +24,14 @@ public class DepartmentController {
 	
 	@Autowired
 	private DepartmentChartService departmentChartService;
+	
+	@Autowired
+	private DepartmentRepository departmentRepository;
+	
+	@RequestMapping("/getall")
+	public List<Department> getAllDepartment(){
+		return departmentRepository.findAll();
+	}
 	
 	@RequestMapping("/{depID}/{depSem}")
 	public JsonType depart(@PathVariable("depID") String depID, @PathVariable("depSem") Integer depSem) {

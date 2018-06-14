@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import sentiment.json.type.ChartElement;
 import sentiment.json.type.JsonType;
 import sentiment.json.type.JsontypeFeedback;
-import sentiment.repositories.FeedbackSentenceRepository;
 import sentiment.service.FacilityService;
 
 @RestController

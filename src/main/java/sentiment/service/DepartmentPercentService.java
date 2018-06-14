@@ -9,13 +9,14 @@ import org.springframework.stereotype.Service;
 import sentiment.json.type.JsonType;
 import sentiment.json.type.JsonTypeDepartmentFB;
 import sentiment.model.FeedbackSentence;
+import sentiment.repositories.DepartmentRepository;
 import sentiment.repositories.FeedbackSentenceRepository;
 
 @Service
 public class DepartmentPercentService {
 	@Autowired
 	private FeedbackSentenceRepository feedbackSentenceRepository;
-
+	
 	public JsonType getPercent(String departmentID, Integer semesterID) {
 		JsonType jsonTypeDepartment = new JsonType();
 

@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import sentiment.json.type.ChartElement;
 import sentiment.json.type.JsonType;
 import sentiment.json.type.JsontypeFeedback;
+import sentiment.model.Subject;
+import sentiment.repositories.SubjectRepository;
 import sentiment.service.SubjectService;
 
 @RestController
@@ -17,18 +19,26 @@ public class SubjectController {
 	@Autowired
 	private SubjectService subjectService;
 	
+	@Autowired
+	private SubjectRepository subjectRepository;
+	
+	@RequestMapping("/subject/getall")
+	public List<Subject> getAllSubject(){
+		return subjectRepository.findAll();
+	}
+	
 	@RequestMapping("/subject/{subjectID}/{semID}")
-	public JsonType getRatio(@PathVariable("subjectID") Integer subjectID, @PathVariable("semID") Integer semID) {
+	public JsonType getRatio(@PathVariable("subjectID") int subjectID, @PathVariable("semID") Integer semID) {
 		return subjectService.getRatio(subjectID, semID);
 	}
 	
 	@RequestMapping("/subject/{subjectID}")
-	public List<ChartElement> returnJsonChart(@PathVariable("subjectID") Integer subjectID){
+	public List<ChartElement> returnJsonChart(@PathVariable("subjectID") int subjectID){
 		return subjectService.returnJsonChart(subjectID);
 	}
 	
 	@RequestMapping("/subject/feedback/{subjectID}/{semID}")
-	public List<JsontypeFeedback> getFeedback(@PathVariable Integer subjectID, @PathVariable Integer semID){
+	public List<JsontypeFeedback> getFeedback(@PathVariable int subjectID, @PathVariable Integer semID){
 		return subjectService.getFeedback(subjectID, semID);
 	}
 }
