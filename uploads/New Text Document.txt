@@ -1,0 +1,6 @@
+if (listSem.isEmpty()) {
+						fileName = fileName.replaceAll(".xlsx", replacement)
+						Semeter sem = new Semeter(fileName);
+						semeterRepository.save(sem);
+					}
+					semeterId = semeterRepository.findBySemeterName(fileName).get(0).getId();
